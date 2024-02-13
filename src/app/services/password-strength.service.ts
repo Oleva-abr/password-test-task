@@ -7,9 +7,9 @@ export class PasswordStrengthService {
 
   calculateStrength(password: string): string {
     if (password.trim().length === 0) {
-      return 'easy';
+      return 'gray';
     } else if (password.trim().length < 8) {
-      return 'easy';
+      return 'weak';
     } else {
       const trimmedPassword = password.trim();
       const hasLetters = /[a-zA-Z]/.test(trimmedPassword);

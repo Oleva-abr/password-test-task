@@ -21,8 +21,14 @@ export class PasswordFormComponent {
     this.updateStrengthColors(strength);
   }
 
-  private updateStrengthColors(strength: string) {
+  updateStrengthColors(strength: string) {
     switch (strength) {
+
+      case 'weak':
+        this.passwordStrengthColor = 'red';
+        this.passwordStrengthColor2 = 'red';
+        this.passwordStrengthColor3 = 'red';
+        break;
       case 'easy':
         this.passwordStrengthColor = 'red';
         this.passwordStrengthColor2 = 'gray';
@@ -38,6 +44,7 @@ export class PasswordFormComponent {
         this.passwordStrengthColor2 = 'green';
         this.passwordStrengthColor3 = 'green';
         break;
+
       default:
         this.passwordStrengthColor = 'gray';
         this.passwordStrengthColor2 = 'gray';
