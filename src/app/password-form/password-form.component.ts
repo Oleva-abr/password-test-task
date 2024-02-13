@@ -1,17 +1,11 @@
-import { Component, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-password-form',
   templateUrl: './password-form.component.html',
   styleUrls: ['./password-form.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PasswordFormComponent),
-      multi: true
-    }
-  ]
+
 })
 export class PasswordFormComponent {
   password: string = '';
