@@ -7,21 +7,21 @@ export class PasswordStrengthService {
 
   calculateStrength(password: string): string {
     if (password.trim().length === 0) {
-      return 'gray';
+      return 'easy';
     } else if (password.trim().length < 8) {
-      return 'red';
+      return 'easy';
     } else {
       const trimmedPassword = password.trim();
       const hasLetters = /[a-zA-Z]/.test(trimmedPassword);
       const hasNumbers = /[0-9]/.test(trimmedPassword);
       const hasSymbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(trimmedPassword);
 
-      if ((hasLetters && hasNumbers && hasSymbols)) {
-        return 'green';
+      if (hasLetters && hasNumbers && hasSymbols) {
+        return 'strong';
       } else if ((hasLetters && hasNumbers) || (hasLetters && hasSymbols) || (hasNumbers && hasSymbols)) {
-        return 'yellow';
+        return 'medium';
       } else {
-        return 'red';
+        return 'easy';
       }
     }
   }

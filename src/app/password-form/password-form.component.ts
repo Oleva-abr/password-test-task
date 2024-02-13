@@ -18,8 +18,30 @@ export class PasswordFormComponent {
 
   calculateStrength() {
     const strength = this.passwordStrengthService.calculateStrength(this.password);
-    this.passwordStrengthColor = strength;
-    this.passwordStrengthColor2 = strength;
-    this.passwordStrengthColor3 = strength;
+    this.updateStrengthColors(strength);
+  }
+
+  private updateStrengthColors(strength: string) {
+    switch (strength) {
+      case 'easy':
+        this.passwordStrengthColor = 'red';
+        this.passwordStrengthColor2 = 'gray';
+        this.passwordStrengthColor3 = 'gray';
+        break;
+      case 'medium':
+        this.passwordStrengthColor = 'yellow';
+        this.passwordStrengthColor2 = 'yellow';
+        this.passwordStrengthColor3 = 'gray';
+        break;
+      case 'strong':
+        this.passwordStrengthColor = 'green';
+        this.passwordStrengthColor2 = 'green';
+        this.passwordStrengthColor3 = 'green';
+        break;
+      default:
+        this.passwordStrengthColor = 'gray';
+        this.passwordStrengthColor2 = 'gray';
+        this.passwordStrengthColor3 = 'gray';
+    }
   }
 }
